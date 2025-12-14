@@ -1,0 +1,338 @@
+.header {
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-md);
+    animation: fadeIn 0.6s ease-out 0.2s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.input-group {
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-lg);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.input-group:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px rgba(0, 212, 170, 0.3);
+}
+
+.input-group-text {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: var(--text-light);
+    border: none;
+    font-weight: 600;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+}
+
+input.form-control {
+    color: var(--text-dark);
+    border: 2px solid var(--primary-color);
+    border-left: none;
+    border-right: none;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+input.form-control:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background: var(--text-light);
+    box-shadow: inset 0 0 0 2px var(--accent-color);
+}
+
+input.form-control::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+    font-style: italic;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+    border: none;
+    padding: 15px 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-success::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-success:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-success:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 212, 170, 0.4);
+}
+
+.btn-success:active {
+    transform: scale(0.98);
+}
+
+.sort-container {
+    padding: 25px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    animation: fadeIn 0.6s ease-out 0.3s both;
+}
+
+.sort-controls {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.sort-label {
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0;
+    white-space: nowrap;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.sort-select {
+    min-width: 250px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.sort-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.2), var(--shadow-md);
+    background: var(--text-light);
+}
+
+.sort-select:hover {
+    border-color: var(--accent-color);
+    box-shadow: var(--shadow-md);
+}
+
+.sort-select option {
+    padding: 10px;
+    background: var(--text-light);
+    color: var(--text-dark);
+}
+
+.auto-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 40px 20px;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.card {
+    width: 18rem;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    background: transparent;
+    animation: cardFadeIn 0.6s ease-out both;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
+.card:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0, 212, 170, 0.3);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    transition: var(--transition);
+    border-radius: 0;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+.card-body {
+    padding: 25px;
+    transition: var(--transition);
+}
+
+.card-body-odd {
+    background: linear-gradient(135deg, var(--card-bg-light) 0%, #e8f5f3 100%);
+    color: var(--primary-dark);
+    border-top: 3px solid var(--accent-color);
+}
+
+.card-body-even {
+    background: linear-gradient(135deg, var(--card-bg-dark) 0%, var(--primary-color) 100%);
+    color: var(--text-light);
+    border-top: 3px solid var(--accent-color);
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: inherit;
+}
+
+.card-body-odd .card-title {
+    color: var(--primary-dark);
+}
+
+.card-body-even .card-title {
+    color: var(--text-light);
+}
+
+.card-text {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-text::before {
+    content: '▶';
+    font-size: 0.7rem;
+    opacity: 0.6;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: var(--transition);
+    width: 100%;
+    margin-top: 15px;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Empty state */
+p:empty,
+.auto-container > p {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 60px 20px;
+    opacity: 0.7;
+    font-style: italic;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 30px 15px;
+    }
+    
+    .sort-container {
+        padding: 20px 15px;
+    }
+    
+    .sort-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .sort-label {
+        text-align: center;
+    }
+    
+    .sort-select {
+        min-width: 100%;
+        width: 100%;
+    }
+    
+    .auto-container {
+        gap: 20px;
+        padding: 30px 15px;
+    }
+    
+    .card {
+        width: 100%;
+        max-width: 350px;
+    }
+}

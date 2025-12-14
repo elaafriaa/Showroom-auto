@@ -1,0 +1,42 @@
+<div class="container-fluid header">
+    <div class="input-group input-group-lg">
+  <span class="input-group-text" id="inputGroup-sizing-lg">Brand</span>
+  <input (input)="selectAutoList(brand.value)" #brand type="text" class="form-control"
+  placeholder="e.g. audi" >
+  <button (click)="selectAutoList(brand.value)" class="btn btn-success">Search</button>
+</div>
+</div>
+<div class="container-fluid sort-container">
+  <div class="sort-controls">
+    <label for="sortSelect" class="sort-label">Trier par :</label>
+    <select id="sortSelect" class="form-select sort-select" [value]="currentSort" (change)="sortCars($any($event.target).value)">
+      <option value="none">Aucun tri</option>
+      <option value="price-asc">Prix (Croissant)</option>
+      <option value="price-desc">Prix (Décroissant)</option>
+      <option value="brand-asc">Marque (A-Z)</option>
+      <option value="brand-desc">Marque (Z-A)</option>
+      <option value="color-asc">Couleur (A-Z)</option>
+      <option value="color-desc">Couleur (Z-A)</option>
+    </select>
+  </div>
+</div>
+<div class="container auto-container">
+    @for (auto of selectedAutos ; track auto.id; let indice = $index; let even=$even ; let odd=$odd) {
+    
+    <div class="card" style="width: 18rem;">
+  <img [src]="auto.photo" [alt]="auto.brand + ' ' + auto.model" class="card-img-top" (error)="$event.target.src='/GLA.webp'">
+  <div class="card-body" [ngClass]="{'card-body-odd':odd, 'card-body-even':even}">
+    <h5 class="card-title" >{{indice+1}} {{auto.brand}} - {{auto.model}}</h5>
+    <p class="card-text">power: {{auto.power}}</p>
+    <p class="card-text">price: {{auto.price | currency:'EUR'}}</p>
+    <p class="card-text">color: {{auto.color}}</p>
+    <p class="card-text">Only: {{auto.availability}} units available</p>
+    <a href="#" class="btn btn-primary" (click)="showDetails(auto)">more details</a>
+  </div>
+</div>
+    }
+    @empty{
+      <p>no cars found!</p>
+    }
+  
+</div>
